@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarek Creatives — Video Editor</title>
+  <meta name="description" content="Tarek Hasan Arfi — freelance video editor from Bangladesh. 1000+ videos edited worldwide. Promo, social media & corporate edits that grow brands.">
+  <link rel="icon" href="./assets/tarek-avatar.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="overflow-x-clip">
+  <div class="grain pointer-events-none fixed inset-0 z-[60]"></div>
+
+  <!-- Scroll progress -->
+  <div id="progress" class="fixed left-0 top-0 z-[70] h-[3px] w-full origin-left scale-x-0 bg-accent"></div>
+
+  <!-- Nav -->
+  <header id="nav" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5">
+      <a href="#home" class="flex items-center gap-2.5 font-display text-xl font-extrabold tracking-tight">
+        <img src="./assets/tarek-avatar.jpg" alt="" class="h-9 w-9 rounded-full border-2 border-white object-cover shadow">
+        Tarek<span class="-ml-2 text-accent">.</span>
+      </a>
+      <ul class="hidden items-center gap-1 rounded-full border border-line bg-white/70 p-1 text-sm font-medium text-muted backdrop-blur md:flex">
+        <li><a href="#about" class="nav-link rounded-full px-4 py-2 transition hover:text-ink">About</a></li>
+        <li><a href="#services" class="nav-link rounded-full px-4 py-2 transition hover:text-ink">Services</a></li>
+        <li><a href="#work" class="nav-link rounded-full px-4 py-2 transition hover:text-ink">Work</a></li>
+        <li><a href="#process" class="nav-link rounded-full px-4 py-2 transition hover:text-ink">Process</a></li>
+        <li><a href="#faq" class="nav-link rounded-full px-4 py-2 transition hover:text-ink">FAQ</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a href="#contact" class="shine magnetic hidden rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent sm:inline-block">Let's talk</a>
+        <button id="menu-btn" class="grid h-10 w-10 place-items-center rounded-full border border-line bg-white md:hidden" aria-label="Open menu">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="pointer-events-none fixed inset-0 z-[55] flex flex-col bg-paper/95 px-6 pb-8 pt-5 opacity-0 backdrop-blur-lg transition-opacity duration-300 md:hidden">
+    <div class="flex items-center justify-between">
+      <span class="flex items-center gap-2.5 font-display text-xl font-extrabold tracking-tight">
+        <img src="./assets/tarek-avatar.jpg" alt="" class="h-9 w-9 rounded-full border-2 border-white object-cover shadow">
+        Tarek<span class="-ml-2 text-accent">.</span>
+      </span>
+      <button id="menu-close" class="grid h-10 w-10 place-items-center rounded-full bg-ink text-white" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="menu-links flex flex-1 flex-col justify-center font-display text-[2.6rem] font-bold leading-tight">
+      <a href="#about" class="flex items-baseline gap-4 border-b border-line py-3"><span class="font-mono text-xs font-normal text-muted">01</span>About</a>
+      <a href="#services" class="flex items-baseline gap-4 border-b border-line py-3"><span class="font-mono text-xs font-normal text-muted">02</span>Services</a>
+      <a href="#work" class="flex items-baseline gap-4 border-b border-line py-3"><span class="font-mono text-xs font-normal text-muted">03</span>Work</a>
+      <a href="#process" class="flex items-baseline gap-4 border-b border-line py-3"><span class="font-mono text-xs font-normal text-muted">04</span>Process</a>
+      <a href="#faq" class="flex items-baseline gap-4 border-b border-line py-3"><span class="font-mono text-xs font-normal text-muted">05</span>FAQ</a>
+    </nav>
+    <div class="menu-links grid grid-cols-2 gap-3">
+      <!-- TODO: replace with Tarek's real email / WhatsApp -->
+      <a href="#contact" class="rounded-full bg-accent py-3.5 text-center font-semibold text-white">Let's talk →</a>
+      <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener" class="rounded-full border border-ink/15 bg-white py-3.5 text-center font-semibold">WhatsApp</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================= HERO — camera viewfinder ================= -->
+    <section id="home" class="relative overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-44">
+      <div class="pointer-events-none absolute -right-32 -top-32 h-[30rem] w-[30rem] animate-blob rounded-full bg-soft blur-3xl"></div>
+      <div class="pointer-events-none absolute -left-40 top-60 h-80 w-80 animate-blob rounded-full bg-[#fff1c7] blur-3xl [animation-delay:-8s]"></div>
+
+      <!-- Viewfinder overlay -->
+      <div class="pointer-events-none absolute inset-x-4 bottom-4 top-24 hidden md:block">
+        <span class="absolute left-0 top-0 h-10 w-10 border-l-2 border-t-2 border-ink/25"></span>
+        <span class="absolute right-0 top-0 h-10 w-10 border-r-2 border-t-2 border-ink/25"></span>
+        <span class="absolute bottom-0 left-0 h-10 w-10 border-b-2 border-l-2 border-ink/25"></span>
+        <span class="absolute bottom-0 right-0 h-10 w-10 border-b-2 border-r-2 border-ink/25"></span>
+        <div class="absolute left-5 top-4 flex items-center gap-2 font-mono text-xs font-semibold text-ink/60">
+          <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-red-500"></span> REC
+        </div>
+        <p id="timecode" class="absolute right-5 top-4 font-mono text-xs text-ink/60">00:00:00:00</p>
+        <p class="absolute bottom-4 left-5 font-mono text-xs text-ink/40">4K · 25fps · ISO 400</p>
+        <div class="absolute bottom-4 right-5 flex items-center gap-1.5 font-mono text-xs text-ink/40">
+          <span class="flex h-3 items-center gap-px"><span class="h-full w-1 bg-ink/40"></span><span class="h-full w-1 bg-ink/40"></span><span class="h-full w-1 bg-ink/40"></span><span class="h-full w-1 bg-ink/15"></span></span> 78%
+        </div>
+      </div>
+
+      <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-[1.5fr_1fr] md:gap-16">
+        <div>
+          <p class="hero-in mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-1.5 text-sm text-muted shadow-sm">
+            <span class="relative flex h-2 w-2"><span class="absolute h-full w-full animate-ping rounded-full bg-green-500 opacity-70"></span><span class="relative h-2 w-2 rounded-full bg-green-500"></span></span>
+            Available for new projects
+          </p>
+          <h1 class="font-display text-[clamp(2.4rem,11vw,3rem)] sm:text-[clamp(2.6rem,6.5vw,5.2rem)] font-extrabold leading-[1.02] tracking-tight">
+            <span class="block overflow-hidden"><span class="hero-line block">Videos that</span></span>
+            <span class="block overflow-hidden"><span class="hero-line block">keep people</span></span>
+            <span class="block overflow-hidden pb-2"><span class="hero-line block font-serif text-[1.12em] font-normal italic text-accent">watching.</span></span>
+          </h1>
+          <p class="hero-in mt-5 max-w-md text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
+            I'm Tarek — a freelance video editor from Bangladesh, helping creators and brands grow with edits people love to watch.
+          </p>
+          <p class="hero-in mt-5 flex items-center gap-3 text-sm font-medium text-muted">
+            Now editing
+            <span class="inline-flex h-9 items-center gap-2 overflow-hidden rounded-full bg-ink px-4 text-white">
+              <span class="h-2 w-2 shrink-0 animate-pulse rounded-full bg-accent"></span>
+              <span id="rotator" class="inline-block whitespace-nowrap transition duration-300">promo videos</span>
+            </span>
+          </p>
+          <div class="hero-in mt-8 grid grid-cols-2 gap-3 sm:mt-9 sm:flex sm:flex-wrap sm:items-center">
+            <a href="#work" class="shine magnetic group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-accent px-4 py-3.5 sm:px-7 font-semibold text-white shadow-lg shadow-accent/25 transition-shadow hover:shadow-xl hover:shadow-accent/40">
+              See my work
+              <svg class="h-4 w-4 transition group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="magnetic whitespace-nowrap rounded-full border border-ink/15 bg-white px-4 py-3.5 text-center font-semibold transition-colors hover:border-ink sm:px-7">Contact me</a>
+          </div>
+        </div>
+
+        <div class="hero-in relative order-first mx-auto w-full max-w-[17rem] sm:max-w-[21rem] md:order-none">
+          <div id="hero-photo" class="relative transition-transform duration-300 ease-out">
+            <!-- Back plate -->
+            <div class="absolute inset-0 hidden translate-x-4 translate-y-4 rotate-3 rounded-[2rem] bg-accent sm:block"></div>
+            <!-- Portrait -->
+            <div class="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-ink shadow-[0_24px_60px_-20px_rgba(255,90,31,.55)] ring-4 ring-white sm:shadow-2xl sm:shadow-ink/20 sm:ring-0">
+              <img src="./assets/tarek-portrait.jpg" alt="Tarek Hasan Arfi" class="h-full w-full scale-105 object-cover object-[50%_18%] transition duration-700 hover:scale-110">
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/25"></div>
+              <span class="pointer-events-none absolute left-4 top-4 h-5 w-5 rounded-tl-md border-l-2 border-t-2 border-white/80"></span>
+              <span class="pointer-events-none absolute right-4 top-4 h-5 w-5 rounded-tr-md border-r-2 border-t-2 border-white/80"></span>
+              <span class="pointer-events-none absolute bottom-4 left-4 h-5 w-5 rounded-bl-md border-b-2 border-l-2 border-white/80"></span>
+              <span class="pointer-events-none absolute bottom-4 right-4 h-5 w-5 rounded-br-md border-b-2 border-r-2 border-white/80"></span>
+              <div class="absolute left-7 top-7 flex items-center gap-1.5 font-mono text-[10px] font-semibold tracking-widest text-white">
+                <span class="h-2 w-2 animate-pulse rounded-full bg-red-500"></span> REC
+              </div>
+              <div class="absolute inset-x-7 bottom-7 text-white">
+                <p class="font-display text-xl font-bold leading-tight sm:text-2xl">Tarek Hasan Arfi</p>
+                <p class="mt-1 text-xs text-white/75 sm:text-sm">Video Editor · Bangladesh</p>
+              </div>
+            </div>
+            <!-- Floating badges -->
+            <div class="absolute -left-5 top-[38%] animate-float rounded-2xl bg-white px-3.5 py-2.5 shadow-xl sm:-left-10 sm:px-4 sm:py-3">
+              <p class="font-display text-xl font-extrabold leading-none sm:text-2xl">1000<span class="text-accent">+</span></p>
+              <p class="mt-1 text-[10px] text-muted sm:text-xs">Videos edited</p>
+            </div>
+            <div class="absolute -right-4 bottom-[22%] flex animate-float items-center gap-1.5 rounded-2xl bg-white p-2 shadow-xl [animation-delay:-3s] sm:-right-8">
+              <span class="grid h-8 w-8 place-items-center rounded-xl bg-[#00005b] text-xs font-bold text-[#9999ff] sm:h-9 sm:w-9 sm:text-sm">Pr</span>
+              <span class="grid h-8 w-8 place-items-center rounded-xl bg-[#00005b] text-xs font-bold text-[#d291ff] sm:h-9 sm:w-9 sm:text-sm">Ae</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FILM STRIP — portfolio frames ================= -->
+    <div class="overflow-hidden py-3">
+    <div id="marquee" class="-mx-4 -rotate-1 overflow-hidden bg-ink py-1">
+      <div id="filmstrip" class="flex w-max animate-marquee hover:[animation-play-state:paused]"></div>
+    </div>
+    </div>
+
+    <!-- ================= ABOUT — scroll-highlight manifesto ================= -->
+    <section id="about" class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+      <div class="mb-8 flex items-center gap-4 sm:mb-12">
+        <span class="font-mono text-xs text-muted">01 /</span>
+        <p class="text-sm font-semibold uppercase tracking-widest text-accent">About me</p>
+        <span class="h-px flex-1 bg-line"></span>
+      </div>
+
+      <div class="grid items-center gap-10 lg:grid-cols-[0.8fr_1.4fr] lg:gap-16">
+        <figure class="reveal relative mx-auto w-full max-w-xs lg:max-w-none">
+          <div class="relative aspect-square overflow-hidden rounded-[2rem]">
+            <img src="./assets/tarek-sofa.jpg" alt="Tarek Hasan Arfi relaxing in the studio" loading="lazy" class="h-full w-full object-cover transition duration-700 hover:scale-105">
+          </div>
+          <figcaption class="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-ink px-4 py-2.5 text-xs font-medium text-white shadow-xl">
+            <span class="relative flex h-2 w-2"><span class="absolute h-full w-full animate-ping rounded-full bg-green-400 opacity-70"></span><span class="relative h-2 w-2 rounded-full bg-green-400"></span></span>
+            Usually replies within a few hours
+          </figcaption>
+        </figure>
+      <h2 id="manifesto" class="font-display text-[1.55rem] font-bold leading-[1.28] tracking-tight sm:text-[clamp(1.8rem,3.4vw,3rem)] sm:leading-[1.2]">
+        Hi, I'm
+        <span class="mx-1 inline-block h-[0.85em] w-[0.85em] translate-y-[0.08em] overflow-hidden rounded-full align-baseline ring-2 ring-accent"><img src="./assets/tarek-avatar.jpg" alt="" class="h-full w-full object-cover"></span>
+        Tarek. I've edited 1000+ videos for clients worldwide — turning raw footage into stories people actually finish watching.
+        <span class="mx-1 inline-flex h-[0.8em] w-[1.5em] translate-y-[0.06em] items-center justify-center rounded-full bg-accent align-baseline text-white"><svg class="h-[0.4em] w-[0.4em]" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4v16l14-8z"/></svg></span>
+        Promo, social &amp; corporate edits that grow brands.
+      </h2>
+      </div>
+
+      <div class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line sm:mt-20 lg:grid-cols-4">
+        <div class="reveal group bg-paper p-5 sm:p-8 transition-colors hover:bg-white">
+          <p class="font-mono text-xs text-muted">[ VIDEOS ]</p>
+          <p class="mt-3 font-display text-4xl font-extrabold sm:mt-4 sm:text-5xl"><span class="counter" data-to="1000">0</span><span class="text-accent">+</span></p>
+          <p class="mt-2 text-sm text-muted">edited for brands &amp; creators</p>
+        </div>
+        <div class="reveal group bg-paper p-5 sm:p-8 transition-colors [transition-delay:80ms] hover:bg-white">
+          <p class="font-mono text-xs text-muted">[ CLIENTS ]</p>
+          <p class="mt-3 font-display text-4xl font-extrabold sm:mt-4 sm:text-5xl"><span class="counter" data-to="100">0</span><span class="text-accent">+</span></p>
+          <p class="mt-2 text-sm text-muted">happy clients worldwide</p>
+        </div>
+        <div class="reveal group bg-paper p-5 sm:p-8 transition-colors [transition-delay:160ms] hover:bg-white">
+          <p class="font-mono text-xs text-muted">[ EXPERIENCE ]</p>
+          <p class="mt-3 font-display text-4xl font-extrabold sm:mt-4 sm:text-5xl"><span class="counter" data-to="5">0</span><span class="text-accent">+</span></p>
+          <p class="mt-2 text-sm text-muted">years in the edit bay</p>
+        </div>
+        <div class="reveal group bg-ink p-5 sm:p-8 text-white [transition-delay:240ms]">
+          <p class="font-mono text-xs text-white/50">[ DELIVERY ]</p>
+          <p class="mt-3 font-display text-4xl font-extrabold sm:mt-4 sm:text-5xl"><span class="counter" data-to="24">0</span><span class="text-accent">h</span></p>
+          <p class="mt-2 text-sm text-white/60">turnaround on short-form</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES — hover list ================= -->
+    <section id="services" class="relative bg-white py-20 sm:py-28">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="mb-8 flex items-center gap-4 sm:mb-14">
+          <span class="font-mono text-xs text-muted">02 /</span>
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent">Services</p>
+          <span class="h-px flex-1 bg-line"></span>
+        </div>
+
+        <div id="service-list" class="border-t border-ink">
+          <a href="#contact" class="service roll-host group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1.5 border-b border-ink py-5 md:grid-cols-[80px_1fr_1fr_40px] md:gap-3 md:py-10">
+            <span class="col-span-2 font-mono text-xs text-muted md:col-span-1 md:text-sm">(01)</span>
+            <h3 class="font-display text-[1.7rem] font-bold leading-none tracking-tight sm:text-6xl"><span class="roll" data-roll="Promo"></span></h3>
+            <p class="col-span-2 max-w-sm text-sm leading-relaxed text-muted sm:text-base md:col-span-1">High-energy ads &amp; product promos — music sync, fast cuts, clear call-to-action.</p>
+            <span class="col-start-2 row-start-2 grid h-9 w-9 place-items-center rounded-full border border-ink text-sm transition duration-300 group-hover:-rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-white md:col-start-auto md:row-start-auto md:h-10 md:w-10 md:text-base">→</span>
+          </a>
+          <a href="#contact" class="service roll-host group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1.5 border-b border-ink py-5 md:grid-cols-[80px_1fr_1fr_40px] md:gap-3 md:py-10">
+            <span class="col-span-2 font-mono text-xs text-muted md:col-span-1 md:text-sm">(02)</span>
+            <h3 class="font-display text-[1.7rem] font-bold leading-none tracking-tight sm:text-6xl"><span class="roll" data-roll="Reels"></span></h3>
+            <p class="col-span-2 max-w-sm text-sm leading-relaxed text-muted sm:text-base md:col-span-1">Instagram, TikTok &amp; Shorts — scroll-stopping hooks with animated captions.</p>
+            <span class="col-start-2 row-start-2 grid h-9 w-9 place-items-center rounded-full border border-ink text-sm transition duration-300 group-hover:-rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-white md:col-start-auto md:row-start-auto md:h-10 md:w-10 md:text-base">→</span>
+          </a>
+          <a href="#contact" class="service roll-host group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1.5 border-b border-ink py-5 md:grid-cols-[80px_1fr_1fr_40px] md:gap-3 md:py-10">
+            <span class="col-span-2 font-mono text-xs text-muted md:col-span-1 md:text-sm">(03)</span>
+            <h3 class="font-display text-[1.7rem] font-bold leading-none tracking-tight sm:text-6xl"><span class="roll" data-roll="Corporate"></span></h3>
+            <p class="col-span-2 max-w-sm text-sm leading-relaxed text-muted sm:text-base md:col-span-1">Brand films, testimonials &amp; explainers — clean, polished and on-brand.</p>
+            <span class="col-start-2 row-start-2 grid h-9 w-9 place-items-center rounded-full border border-ink text-sm transition duration-300 group-hover:-rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-white md:col-start-auto md:row-start-auto md:h-10 md:w-10 md:text-base">→</span>
+          </a>
+          <a href="#contact" class="service roll-host group grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1.5 border-b border-ink py-5 md:grid-cols-[80px_1fr_1fr_40px] md:gap-3 md:py-10">
+            <span class="col-span-2 font-mono text-xs text-muted md:col-span-1 md:text-sm">(04)</span>
+            <h3 class="font-display text-[1.7rem] font-bold leading-none tracking-tight sm:text-6xl"><span class="roll" data-roll="Talking Head"></span></h3>
+            <p class="col-span-2 max-w-sm text-sm leading-relaxed text-muted sm:text-base md:col-span-1">YouTube &amp; podcasts — jump cuts, punch-in zooms, B-roll &amp; clean audio.</p>
+            <span class="col-start-2 row-start-2 grid h-9 w-9 place-items-center rounded-full border border-ink text-sm transition duration-300 group-hover:-rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-white md:col-start-auto md:row-start-auto md:h-10 md:w-10 md:text-base">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORK — cinema screen + reel ================= -->
+    <section id="work" class="bg-ink py-20 sm:py-28 text-white">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="mb-8 flex items-end justify-between gap-4 sm:mb-12">
+          <div>
+            <div class="mb-5 flex items-center gap-4">
+              <span class="font-mono text-xs text-white/40">03 /</span>
+              <p class="text-sm font-semibold uppercase tracking-widest text-accent">Portfolio</p>
+            </div>
+            <h2 class="split font-display text-[2rem] font-bold tracking-tight sm:text-6xl">Now showing.</h2>
+          </div>
+          <div class="flex gap-2">
+            <button id="prev" class="grid h-10 w-10 shrink-0 sm:h-12 sm:w-12 place-items-center rounded-full border border-white/20 transition hover:border-accent hover:bg-accent" aria-label="Previous">←</button>
+            <button id="next" class="grid h-10 w-10 shrink-0 sm:h-12 sm:w-12 place-items-center rounded-full border border-white/20 transition hover:border-accent hover:bg-accent" aria-label="Next">→</button>
+          </div>
+        </div>
+
+        <div class="reveal grid gap-6 lg:grid-cols-[1fr_280px]">
+          <!-- Main screen -->
+          <div>
+            <div id="screen" class="relative aspect-video overflow-hidden rounded-2xl sm:rounded-3xl bg-black shadow-[0_40px_120px_-30px_rgba(255,90,31,.45)]">
+              <img id="screen-img" src="" alt="" class="h-full w-full object-cover transition duration-500">
+              <div id="screen-shade" class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-black/30"></div>
+              <button id="screen-play" class="group absolute inset-0 grid place-items-center" aria-label="Play video">
+                <span class="relative grid h-14 w-14 place-items-center rounded-full bg-accent sm:h-20 sm:w-20 text-white shadow-2xl transition duration-300 group-hover:scale-110">
+                  <span class="absolute inset-0 animate-ping rounded-full bg-accent/50"></span>
+                  <svg class="relative ml-1 h-7 w-7" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+              </button>
+              <div id="screen-meta" class="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between p-4 sm:p-6">
+                <div>
+                  <p id="screen-tag" class="mb-1 font-mono text-xs uppercase tracking-widest text-accent"></p>
+                  <p id="screen-title" class="font-display text-base font-bold sm:text-3xl"></p>
+                </div>
+                <p class="font-mono text-sm text-white/60"><span id="screen-num">01</span> / <span id="screen-total">06</span></p>
+              </div>
+            </div>
+            <div class="mt-3 flex items-center justify-between gap-3 text-xs text-white/40">
+              <p class="hidden sm:block">Tip: tap the ⛶ icon in the player for fullscreen.</p>
+              <a id="screen-drive" href="#" target="_blank" rel="noopener" class="ml-auto inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 transition hover:border-accent hover:text-accent">
+                Open in Google Drive
+                <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Reel list -->
+          <div id="reel" class="-m-1 flex gap-3 overflow-x-auto p-1 pb-3 [scrollbar-width:thin] [mask-image:linear-gradient(90deg,black_85%,transparent)] lg:[mask-image:none] lg:max-h-[min(31rem,calc((min(100vw,72rem)-2.5rem-280px-1.5rem)*0.5625+2.75rem))] lg:flex-col lg:overflow-y-auto lg:overflow-x-hidden lg:pb-1 lg:pr-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS — editing timeline ================= -->
+    <section id="process" class="bg-[#1b1b1b] py-20 sm:py-28 text-white">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="mb-5 flex items-center gap-4">
+          <span class="font-mono text-xs text-white/40">04 /</span>
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent">Process</p>
+        </div>
+        <h2 class="split mb-10 max-w-2xl sm:mb-14 font-display text-4xl font-bold tracking-tight sm:text-5xl">From raw footage to final export.</h2>
+
+        <div id="timeline" class="reveal overflow-hidden rounded-3xl border border-white/10 bg-[#111]">
+          <!-- Toolbar -->
+          <div class="flex items-center justify-between border-b border-white/10 px-5 py-3 font-mono text-xs text-white/50">
+            <div class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-[#ff5f57]"></span><span class="h-3 w-3 rounded-full bg-[#febc2e]"></span><span class="h-3 w-3 rounded-full bg-[#28c840]"></span><span class="ml-3 hidden sm:inline">your_next_video.prproj</span></div>
+            <span id="tl-time">00:00:00</span>
+          </div>
+
+          <div class="relative px-4 pb-5 pt-3 sm:px-5 sm:pb-6">
+            <div class="ruler mb-3 h-5 border-b border-white/10"></div>
+            <!-- Tracks -->
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <span class="w-6 shrink-0 font-mono text-[10px] text-white/40 sm:w-8">V1</span>
+                <div class="grid flex-1 grid-cols-4 gap-1.5">
+                  <button data-step="0" class="step-clip h-14 rounded-lg bg-[#5b6cff] px-2 text-left text-[11px] font-semibold leading-tight sm:px-3 sm:text-xs">01<br class="sm:hidden"> Brief</button>
+                  <button data-step="1" class="step-clip h-14 rounded-lg bg-accent px-2 text-left text-[11px] font-semibold leading-tight sm:px-3 sm:text-xs">02<br class="sm:hidden"> Edit</button>
+                  <button data-step="2" class="step-clip h-14 rounded-lg bg-[#c084fc] px-2 text-left text-[11px] font-semibold leading-tight sm:px-3 sm:text-xs">03<br class="sm:hidden"> Review</button>
+                  <button data-step="3" class="step-clip h-14 rounded-lg bg-[#22c55e] px-2 text-left text-[11px] font-semibold leading-tight sm:px-3 sm:text-xs">04<br class="sm:hidden"> Deliver</button>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-6 shrink-0 font-mono text-[10px] text-white/40 sm:w-8">A1</span>
+                <svg id="waveform" class="h-10 flex-1" preserveAspectRatio="none"></svg>
+              </div>
+            </div>
+            <!-- Playhead -->
+            <div id="playhead" class="pointer-events-none absolute bottom-3 top-1 w-0.5 bg-accent" style="left: 3.25rem">
+              <span class="absolute -left-[5px] -top-1 h-3 w-3 rotate-45 rounded-sm bg-accent"></span>
+            </div>
+          </div>
+
+          <!-- Step details -->
+          <div class="grid gap-6 border-t border-white/10 p-6 sm:p-8 md:grid-cols-[1fr_1.5fr]">
+            <div>
+              <p class="font-mono text-xs text-accent" id="step-num">STEP 01</p>
+              <h3 class="mt-2 font-display text-3xl font-bold" id="step-title">Brief</h3>
+            </div>
+            <p class="text-white/60 md:text-lg" id="step-text">You share your footage, goals and reference videos. We lock in the vision, style and deadline.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WHY ME — sticky stacking cards ================= -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
+        <div class="lg:sticky lg:top-32 lg:self-start">
+          <div class="mb-5 flex items-center gap-4">
+            <span class="font-mono text-xs text-muted">05 /</span>
+            <p class="text-sm font-semibold uppercase tracking-widest text-accent">Why me</p>
+          </div>
+          <h2 class="split font-display text-4xl font-bold tracking-tight sm:text-5xl">More than just cutting clips.</h2>
+          <p class="reveal mt-5 max-w-sm text-muted">I think about what makes viewers stay — and edit every second around it.</p>
+          <a href="#contact" class="shine magnetic reveal mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-semibold text-white transition-colors hover:bg-accent">Start a project →</a>
+        </div>
+        <div class="space-y-[22vh] pb-[24vh] lg:space-y-6 lg:pb-0">
+          <div class="sticky top-20 rounded-3xl border border-line bg-white lg:top-28 p-6 sm:p-8 shadow-sm">
+            <div class="flex items-start justify-between"><span class="grid h-14 w-14 place-items-center rounded-2xl bg-soft text-2xl">🎯</span><span class="font-mono text-xs text-muted">01</span></div>
+            <h3 class="mt-5 font-display text-xl font-bold sm:mt-8 sm:text-2xl">Hook-first mindset</h3>
+            <p class="mt-2 text-muted">The first 3 seconds are planned to stop the scroll — because that's where views are won or lost.</p>
+          </div>
+          <div class="sticky top-24 rounded-3xl bg-accent lg:top-32 p-6 sm:p-8 text-white shadow-lg shadow-accent/20">
+            <div class="flex items-start justify-between"><span class="grid h-14 w-14 place-items-center rounded-2xl bg-white/20 text-2xl">⚡</span><span class="font-mono text-xs text-white/70">02</span></div>
+            <h3 class="mt-5 font-display text-xl font-bold sm:mt-8 sm:text-2xl">Fast turnaround</h3>
+            <p class="mt-2 text-white/80">Short videos delivered quickly, without cutting corners on quality.</p>
+          </div>
+          <div class="sticky top-28 rounded-3xl bg-ink lg:top-36 p-6 sm:p-8 text-white shadow-lg">
+            <div class="flex items-start justify-between"><span class="grid h-14 w-14 place-items-center rounded-2xl bg-white/10 text-2xl">💬</span><span class="font-mono text-xs text-white/50">03</span></div>
+            <h3 class="mt-5 font-display text-xl font-bold sm:mt-8 sm:text-2xl">Clear communication</h3>
+            <p class="mt-2 text-white/60">Quick replies and progress updates at every step — you're never left guessing.</p>
+          </div>
+          <div class="sticky top-32 rounded-3xl border border-line bg-[#fff1c7] lg:top-40 p-6 sm:p-8 shadow-sm">
+            <div class="flex items-start justify-between"><span class="grid h-14 w-14 place-items-center rounded-2xl bg-white text-2xl">🔁</span><span class="font-mono text-xs text-muted">04</span></div>
+            <h3 class="mt-5 font-display text-xl font-bold sm:mt-8 sm:text-2xl">Revisions included</h3>
+            <p class="mt-2 text-muted">Your feedback is part of the process, not an extra charge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ — chat style ================= -->
+    <section id="faq" class="bg-white py-20 sm:py-28">
+      <div class="mx-auto max-w-3xl px-5">
+        <div class="mb-5 flex items-center justify-center gap-4">
+          <span class="font-mono text-xs text-muted">06 /</span>
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent">FAQ</p>
+        </div>
+        <h2 class="split mb-8 text-center sm:mb-12 font-display text-4xl font-bold tracking-tight sm:text-5xl">Questions? Answers.</h2>
+        <div class="space-y-3">
+          <div class="faq reveal rounded-3xl border border-line bg-paper">
+            <button class="faq-btn flex w-full items-center justify-between gap-4 p-4 text-left text-[15px] font-semibold sm:p-5 sm:text-base">How do I send you my footage?<span class="faq-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-lg transition duration-300">+</span></button>
+            <div class="faq-body"><div><div class="flex items-end gap-3 px-5 pb-5"><img src="./assets/tarek-avatar.jpg" alt="" class="h-8 w-8 shrink-0 rounded-full object-cover"><p class="rounded-2xl rounded-bl-sm bg-ink px-4 py-3 text-sm leading-relaxed text-white">Upload your clips to Google Drive, Dropbox or WeTransfer and send me the link with any notes or reference videos.</p></div></div></div>
+          </div>
+          <div class="faq reveal rounded-3xl border border-line bg-paper">
+            <button class="faq-btn flex w-full items-center justify-between gap-4 p-4 text-left text-[15px] font-semibold sm:p-5 sm:text-base">How long does an edit take?<span class="faq-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-lg transition duration-300">+</span></button>
+            <div class="faq-body"><div><div class="flex items-end gap-3 px-5 pb-5"><img src="./assets/tarek-avatar.jpg" alt="" class="h-8 w-8 shrink-0 rounded-full object-cover"><p class="rounded-2xl rounded-bl-sm bg-ink px-4 py-3 text-sm leading-relaxed text-white">Short-form reels are usually ready within 24–48 hours. For longer videos I'll give you a clear timeline before starting.</p></div></div></div>
+          </div>
+          <div class="faq reveal rounded-3xl border border-line bg-paper">
+            <button class="faq-btn flex w-full items-center justify-between gap-4 p-4 text-left text-[15px] font-semibold sm:p-5 sm:text-base">Can I ask for changes?<span class="faq-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-lg transition duration-300">+</span></button>
+            <div class="faq-body"><div><div class="flex items-end gap-3 px-5 pb-5"><img src="./assets/tarek-avatar.jpg" alt="" class="h-8 w-8 shrink-0 rounded-full object-cover"><p class="rounded-2xl rounded-bl-sm bg-ink px-4 py-3 text-sm leading-relaxed text-white">Of course! You'll get a draft to review, and I'll refine it based on your feedback until it feels right.</p></div></div></div>
+          </div>
+          <div class="faq reveal rounded-3xl border border-line bg-paper">
+            <button class="faq-btn flex w-full items-center justify-between gap-4 p-4 text-left text-[15px] font-semibold sm:p-5 sm:text-base">Which formats do you deliver?<span class="faq-icon grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white text-lg transition duration-300">+</span></button>
+            <div class="faq-body"><div><div class="flex items-end gap-3 px-5 pb-5"><img src="./assets/tarek-avatar.jpg" alt="" class="h-8 w-8 shrink-0 rounded-full object-cover"><p class="rounded-2xl rounded-bl-sm bg-ink px-4 py-3 text-sm leading-relaxed text-white">Any size you need — 9:16 for Reels/TikTok/Shorts, 1:1 for feeds and 16:9 for YouTube — in high-quality MP4.</p></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT — clapperboard ================= -->
+    <section id="contact" class="px-4 pb-16 pt-20 sm:px-5 sm:pb-28 sm:pt-36">
+      <div class="reveal mx-auto max-w-5xl">
+        <!-- Clapper top -->
+        <div id="clapper" class="relative z-10 h-8 origin-bottom-left -rotate-[7deg] sm:h-14 overflow-hidden rounded-t-2xl bg-[repeating-linear-gradient(115deg,#141414_0_40px,#faf7f2_40px_80px)] shadow-lg transition-[rotate] duration-500 ease-[cubic-bezier(.5,-0.5,.3,1.5)]"></div>
+        <div class="relative overflow-hidden rounded-b-[1.75rem] bg-ink text-white sm:rounded-b-[2.5rem]">
+          <div class="relative z-10 h-4 bg-[repeating-linear-gradient(115deg,#141414_0_40px,#faf7f2_40px_80px)]"></div>
+          <div class="pointer-events-none absolute -left-20 top-10 h-80 w-80 animate-blob rounded-full bg-accent/30 blur-3xl"></div>
+          <div class="relative grid grid-cols-2 border-b border-white/10 font-mono text-[10px] uppercase text-white/50 sm:grid-cols-3 sm:text-xs">
+            <p class="hidden border-white/10 px-6 py-4 sm:block sm:border-r">Production: <span class="text-white">Your next video</span></p>
+            <p class="border-r border-white/10 px-5 py-3 sm:px-6 sm:py-4">Editor: <span class="text-white">Tarek H. Arfi</span></p>
+            <p class="px-5 py-3 sm:px-6 sm:py-4">Scene <span class="text-white">01</span> · Take <span class="text-accent">01</span></p>
+          </div>
+          <div class="relative px-5 py-9 text-center sm:px-6 sm:py-24">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-accent sm:mb-5 sm:text-sm">Got a project?</p>
+            <h2 class="mx-auto max-w-3xl font-display text-[1.85rem] font-extrabold leading-tight tracking-tight sm:text-6xl">
+              Let's make your next video <span class="font-serif font-normal italic text-accent">unforgettable.</span>
+            </h2>
+            <p class="mx-auto mt-3 max-w-md text-sm text-white/60 sm:mt-5 sm:text-base">Tell me about your project — I usually reply within a few hours.</p>
+            <div class="mt-6 flex flex-col gap-2.5 sm:mt-10 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
+              <!-- TODO: replace with Tarek's real email / WhatsApp -->
+              <a href="mailto:hello@tarekcreatives.com" class="shine magnetic inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold sm:px-8 sm:py-4 sm:text-base transition-colors hover:bg-white hover:text-ink">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6l9 7 9-7M3 6v12h18V6z"/></svg>
+                hello@tarekcreatives.com
+              </a>
+              <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener" class="magnetic inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-6 py-3.5 text-sm font-semibold sm:px-8 sm:py-4 sm:text-base transition-colors hover:border-[#25d366] hover:text-[#25d366]">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER — giant outline name ================= -->
+  <footer class="overflow-hidden border-t border-line pt-10 sm:pt-14">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-5 text-center text-sm text-muted sm:flex-row sm:text-left">
+      <p>© <span id="year">2026</span> Tarek Creatives. All Rights Reserved.</p>
+      <a href="#home" class="transition hover:text-ink">Back to top ↑</a>
+    </div>
+    <p class="outline-text mt-6 select-none whitespace-nowrap text-center font-display text-[24vw] font-extrabold leading-[0.8] sm:text-[19vw] tracking-tighter">
+      <span>T</span><span>A</span><span>R</span><span>E</span><span>K</span><span style="color:var(--color-accent);-webkit-text-stroke-color:var(--color-accent)">.</span>
+    </p>
+  </footer>
+
+  <!-- Floating back-to-top -->
+  <a id="to-top" href="#home" class="fixed bottom-4 right-4 z-40 grid h-11 w-11 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12 translate-y-20 place-items-center rounded-full bg-accent text-white opacity-0 shadow-lg shadow-accent/30 transition duration-300 hover:-translate-y-1" aria-label="Back to top">↑</a>
+
+  <!-- Phone video player -->
+  <div id="player" class="fixed inset-0 z-[80] hidden flex-col bg-ink/80 backdrop-blur-sm">
+    <div class="flex-1" data-close></div>
+    <div id="player-sheet" class="translate-y-full rounded-t-[1.75rem] bg-[#111] pb-6 text-white shadow-2xl transition-transform duration-300 ease-out">
+      <div class="flex justify-center pt-3"><span class="h-1 w-10 rounded-full bg-white/20"></span></div>
+      <div class="flex items-center justify-between gap-3 px-5 pb-3 pt-2">
+        <div class="min-w-0">
+          <p id="player-tag" class="font-mono text-[10px] uppercase tracking-widest text-accent"></p>
+          <p id="player-title" class="truncate font-display text-lg font-bold"></p>
+        </div>
+        <button id="player-close" class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/10 transition hover:bg-accent" aria-label="Close video">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <!-- Drive player rendered at desktop size and scaled down, so Drive shows its full desktop player instead of the cramped mobile one -->
+      <div id="player-box" class="relative aspect-video w-full overflow-hidden bg-black">
+        <iframe id="player-frame" class="absolute left-0 top-0 origin-top-left border-0" style="width:640px;height:360px" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="flex gap-2 px-5 pt-4">
+        <button id="player-prev" class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15" aria-label="Previous video">←</button>
+        <a id="player-drive" href="#" target="_blank" rel="noopener" class="flex flex-1 items-center justify-center gap-2 rounded-full bg-accent text-sm font-semibold">
+          Watch fullscreen in Drive
+          <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <button id="player-next" class="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15" aria-label="Next video">→</button>
+      </div>
+      <p class="px-5 pt-3 text-center text-[11px] text-white/40">Video not loading? Tap “Watch fullscreen in Drive”.</p>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
